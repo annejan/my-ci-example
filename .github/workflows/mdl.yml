@@ -1,13 +1,9 @@
 name: lint Markdown file
-on:
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 jobs:
-  build:
-    runs-on: ubuntu-20.04
+  lint:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install mdl
-      run: npm install --global csval
     - name: Run mdl
       uses: actionshub/markdownlint@main
